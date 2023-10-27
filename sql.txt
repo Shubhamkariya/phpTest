@@ -1,0 +1,63 @@
+
+drop table users;
+create table users 
+(name char(30),
+ username varchar(20) primary Key, 
+ phone varchar(30) unique,
+ password char(30));
+select * from users;
+
+SELECT * FROM users WHERE username = '9834242046' OR phone ='9834242046'  AND password = 'Shubhamk@123'
+
+drop table new_questions;
+drop table new_options;
+-- Create the questions table
+CREATE TABLE new_questions (
+    question_id serial PRIMARY KEY,
+    question_text text
+);
+
+-- Insert questions
+INSERT INTO new_questions (question_id, question_text)
+VALUES
+    (1, 'What is the capital of France?'),
+    (2, 'Who wrote the "Mona Lisa"?'),
+    (3, 'What is the chemical symbol for gold?'),
+    (4, 'In which sport would you perform a slam dunk?'),
+    (5, 'Which actor played the character Tony Stark in the "Iron Man" series?'),
+    (6, 'Who wrote "To Kill a Mockingbird"?'),
+    (7, 'What musical instrument does Yo-Yo Ma play?'),
+    (8, 'What does "HTML" stand for in web development?'),
+    (9, 'What is the primary ingredient in traditional Japanese miso soup?'),
+    (10, 'What is the value of π (pi) to two decimal places?');
+
+-- Create the options table with separate columns for options and the correct option
+CREATE TABLE new_options (
+    option_id serial PRIMARY KEY,
+    question_id int,
+    option_a text,
+    option_b text,
+    option_c text,
+    option_d text,
+    correct_option text
+);
+
+-- Insert options for questions
+INSERT INTO new_options (question_id, option_a, option_b, option_c, option_d, correct_option)
+VALUES
+    (1, 'Paris', 'London', 'Berlin', 'Rome', 'Paris'),
+    (2, 'Michelangelo', 'Leonardo da Vinci', 'Vincent van Gogh', 'Pablo Picasso', 'Leonardo da Vinci'),
+    (3, 'Ag', 'Ge', 'Au', 'Go', 'Au'),
+    (4, 'Soccer', 'Basketball', 'Tennis', 'Golf', 'Basketball'),
+    (5, 'Chris Hemsworth', 'Chris Evans', 'Robert Downey Jr.', 'Mark Ruffalo', 'Robert Downey Jr.'),
+    (6, 'George Orwell', 'JK Rowling', 'Harper Lee', 'F. Scott Fitzgerald', 'Harper Lee'),
+    (7, 'Violin', 'Piano', 'Cello', 'Flute', 'Cello'),
+    (8, 'Hyper Text Markup Language', 'High Tech Modern Language', 'Hyperlink Transfer Markup Language', 'Home Tool Maintenance Language', 'Hyper Text Markup Language'),
+    (9, 'Tofu', 'Seaweed', 'Rice', 'Miso paste', 'Miso paste'),
+    (10, '3.14', '3.16', '3.18', '3.12', '3.14');
+
+
+select * from new_questions;
+select * from new_options;
+
+
